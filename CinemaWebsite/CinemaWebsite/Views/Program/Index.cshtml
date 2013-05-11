@@ -1,0 +1,52 @@
+﻿@model IEnumerable<CinemaWebsite.Models.ProgramModel>
+
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MovieName   )
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Time)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @item.MovieName
+        </td>
+        <td>
+            @String.Format("{0:d}", item.Date)
+        </td>
+        <td>
+            @String.Format("{0:t}", item.Time)
+        </td>
+        <td>
+            @item.Price
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ProgramId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ProgramId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ProgramId })
+        </td>
+    </tr>
+}
+
+</table>

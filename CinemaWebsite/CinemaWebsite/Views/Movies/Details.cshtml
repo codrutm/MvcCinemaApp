@@ -1,0 +1,35 @@
+@model CinemaWebsite.Models.Movie
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Movie</legend>
+
+    <div class="display-label">Title</div>
+    <div class="display-field">@Model.Title</div>
+
+    <div class="display-label">Director</div>
+    <div class="display-field">@Model.Director</div>
+
+    <div class="display-label">Actors</div>
+    <div class="display-field">@Model.Actors</div>
+
+    <div class="display-label">Description</div>
+    <div class="display-field">@Model.Description</div>
+
+    <div class="display-label">FromDate</div>
+    <div class="display-field">@String.Format("{0:g}", Model.FromDate)</div>
+
+    <div class="display-label">ToDate</div>
+    <div class="display-field">@String.Format("{0:g}", Model.ToDate)</div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.MovieId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+
